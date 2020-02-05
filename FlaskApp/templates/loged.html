@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+  <button id="cerrar" type="button">cerrar sesion</button>
+</form>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(function() {
+    $('#cerrar').click(function() {
+ 
+        $.ajax({
+            url: '/cerrar',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                window.location.replace("/");
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+</html>
